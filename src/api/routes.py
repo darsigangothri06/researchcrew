@@ -30,6 +30,20 @@ def _build_config(settings_dict: dict) -> dict:
     }
 
 
+@router.get("/")
+async def root():
+    return {
+        "name": "ResearchCrew API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "endpoints": {
+            "health": "GET /health",
+            "research": "POST /research",
+            "stream": "WS /research/stream",
+        },
+    }
+
+
 @router.get("/health", response_model=HealthResponse)
 async def health():
     return HealthResponse()

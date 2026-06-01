@@ -1,10 +1,11 @@
+import os
 import streamlit as st
 import requests
 import json
 
 st.set_page_config(page_title="ResearchCrew", page_icon="🔬", layout="wide")
 
-API_BASE = "http://localhost:8000"
+API_BASE = os.getenv("API_BASE_URL", "https://researchcrew-e2bd.onrender.com")
 
 # --- Sidebar: Settings ---
 with st.sidebar:
